@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+    <div class="col-md-10 mt-2" *ngFor="let p of posts">
+        <mat-card >
+            <div class="row justify-content-center">
+                <div class="col-md-2 justify-content-center">
+                  <b> Name : </b> {{p.name}}
+                </div>
+                <div class="col-md-6 justify-content-center">
+                   <b>Comment : </b> {{p.comment}}
+                </div>
+                <div class="col-md-2 justify-content-center">
+                    <button mat-raised-button  (click)="deletePost(p.name)" >Delete</button>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

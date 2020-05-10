@@ -1,0 +1,20 @@
+<mat-toolbar>Coding Mart</mat-toolbar>
+<div class="row justify-content-center">
+    <div class="col-md-10">
+           <div class="row justify-content-center">
+               <div class="col-md-12 text-center mt-3">
+                <mat-form-field style="width: 50%;">
+                    <mat-label>Name</mat-label>
+                    <input matInput [(ngModel)]="name" placeholder="Ex. Pizza" value="Sushi">
+                  </mat-form-field>
+                  <br>
+                  <mat-form-field style="width: 50%;">
+                    <mat-label>Leave a comment</mat-label>
+                    <textarea [(ngModel)]="comment" matInput placeholder="Ex. It makes me feel..."></textarea>
+                  </mat-form-field>
+                  <br>
+                  <button mat-raised-button color="primary" (click)="postFeed()" >post</button>
+               </div>
+           </div>
+    </div>
+</div>
