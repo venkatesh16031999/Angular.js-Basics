@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
-
+import { Post } from '../posttype';
 @Component({
   selector: 'app-post-feed',
   templateUrl: './post-feed.component.html',
@@ -10,15 +10,18 @@ export class PostFeedComponent implements OnInit {
 
   constructor( public PostServiceVar: PostService ){}
 
-  posts=[];
+  posts:Post[]=[];
 
   ngOnInit(){
-    this.posts=this.PostServiceVar.getPost();
+    this.PostServiceVar.getPost();
+    this.PostServiceVar.getPostObserver().subscribe((post : Post[])=>{
+      console.log("observer",post);
+      this.posts=post
+    })
   }
 
-  async deletePost(name){
-    await this.PostServiceVar.deletePost(name);
-    this.posts=await this.PostServiceVar.getPost();
+   deletePost(name){
+     this.PostServiceVar.deletePost(name);
   }
 
 
